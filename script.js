@@ -1,7 +1,6 @@
 const temp = document.getElementById("temp"),
   date = document.getElementById("date-time"),
   condition = document.getElementById("condition"),
-  //rain = document.getElementById("rain"),
   mainIcon = document.getElementById("icon"),
   currentLocation = document.getElementById("location"),
   uvIndex = document.querySelector(".uv-index"),
@@ -43,20 +42,8 @@ function getDateTime() {
     "Friday",
     "Saturday",
   ];
-  // 12 hours format
-  var AmPm = "";
-  /*hour = hour % 12;
-  if (hour < 10) {
-    hour = "0" + hour;
-  }
-  if(hour== 0){
-    hour="12";
-  }
-  if (minute < 10) {
-    minute = "0" + minute;
-  }
-  */
   
+  var AmPm = "";
   if(hour<12){
     AmPm="AM";
   }
@@ -75,14 +62,12 @@ function getDateTime() {
   let dayString = days[now.getDay()];
   return `${dayString}, IST - ${hour}:${minute} ${AmPm}`;
 }
-  
-//Updating date and time
+
 date.innerText = getDateTime();
 setInterval(() => {
   date.innerText = getDateTime();
 }, 1000);
 
-// function to get public ip address
 function getPublicIp() {
   fetch("https://geolocation-db.com/json/", {
     method: "GET",
